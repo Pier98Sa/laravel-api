@@ -15,8 +15,10 @@ class PostController extends Controller
      */
     public function index()
     {
+        //richiamo tutti i post, gestendo anche le categorie e creando un impaginazione da 6
         $posts = Post::with(['category'])->paginate(6);
 
+        //ritorno un file Json che poi passerò al Front
         return response()->json(
             [
                 'result' => $posts,

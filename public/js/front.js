@@ -1950,6 +1950,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
+    //aggiungo come params, page così da passare la pagina richiesta
     getPosts: function getPosts(apiPage) {
       var _this = this;
 
@@ -1958,14 +1959,16 @@ __webpack_require__.r(__webpack_exports__);
           'page': apiPage
         }
       }).then(function (response) {
-        _this.posts = response.data.result.data;
-        _this.currentPage = response.data.result.current_page;
-        _this.lastPage = response.data.result.last_page;
+        _this.posts = response.data.result.data; //aggiungo i post all'interno dell'array vuoto
+
+        _this.currentPage = response.data.result.current_page; //prendo il valore della pagina corrente
+
+        _this.lastPage = response.data.result.last_page; //prendo il valore dell'ultima
       });
     }
   },
   created: function created() {
-    this.getPosts();
+    this.getPosts(); //alla creazione della pagina richiamo la funzione che effettua la chiamata Axios
   }
 });
 
@@ -14858,8 +14861,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _views_App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./views/App */ "./resources/js/views/App.vue");
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"); //richiamo vue
+
+window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"); //richiamo axios
+
 
 
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
